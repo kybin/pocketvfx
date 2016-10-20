@@ -50,7 +50,8 @@ type Exp struct {
 	Modeling        float64
 }
 
-type HiddenExp struct {
+// Characteristic은 사람의 특성이다.
+type Characteristic struct {
 	TendToMove     float64 //역마살. 꼬심에 반응하는수치
 	Patience       float64 //인내심. 빡칠때 사직서를 제출할 확률과 같이 연산할 값.
 	Rational       float64 //합리적인,이성적인
@@ -68,8 +69,9 @@ type Person struct {
 	Body      Body
 	Health    float64 //0 이되면 사망.
 	Stress    float64
+	Revealed  float64 // 능력치, 성향 등이 드러난 정도. 신입일땐 0, 경력이 쌓일수록 1에 가까워진다.
 	Exp       Exp
-	HiddenExp HiddenExp //Exp를 같이 사용할지 고민해보기.
+	Character Characteristic
 	Layoff    bool
 	Status    Status
 	Cost      int // 만원
